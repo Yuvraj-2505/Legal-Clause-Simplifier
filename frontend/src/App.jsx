@@ -19,25 +19,14 @@ function ProtectedRoute({ children }) {
   return children;
 }
 
-<<<<<<< HEAD
 // Layout Wrapper to hide Navbar on login and signup pages
 function Layout({ children }) {
   const location = useLocation();
   const hideNavbar = location.pathname === "/login" || location.pathname === "/signup";
-=======
-// Layout Wrapper to conditionally show/hide Navbar
-function Layout({ children }) {
-  const location = useLocation();
-  
-  // List of routes where navbar should be hidden
-  const hideNavbarRoutes = ["/login", "/signup"];
-  
-  const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
->>>>>>> f5da7c48df729c920bd2a59275b0f6f55517a349
 
   return (
     <div className="w-full h-full">
-      {!shouldHideNavbar && <Navbar />}
+      {!hideNavbar && <Navbar />}
       {children}
     </div>
   );
