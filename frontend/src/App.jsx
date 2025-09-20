@@ -18,14 +18,18 @@ function ProtectedRoute({ children }) {
   return children;
 }
 
-// Layout Wrapper to hide Navbar on login page
+// Layout Wrapper to conditionally show/hide Navbar
 function Layout({ children }) {
   const location = useLocation();
-  const hideNavbar = location.pathname === "/login";
+  
+  // List of routes where navbar should be hidden
+  const hideNavbarRoutes = ["/login", "/signup"];
+  
+  const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
 
   return (
     <div className="w-full h-full">
-      {!hideNavbar && <Navbar />}
+      {!shouldHideNavbar && <Navbar />}
       {children}
     </div>
   );
@@ -46,10 +50,16 @@ function App() {
             path="/dashboard"
             element={
               <ProtectedRoute>
-                <h1 className="p-8 text-xl">Welcome to Dashboard</h1>
+                <div className="p-8">
+                  <h1 className="text-3xl font-bold text-gray-900 mb-4">Welcome to Dashboard</h1>
+                  <p className="text-gray-600">You are successfully logged in!</p>
+                </div>
               </ProtectedRoute>
             }
           />
+
+          {/* Redirect any unknown routes to home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>
     </Router>
