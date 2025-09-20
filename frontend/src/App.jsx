@@ -4,6 +4,7 @@ import "./App.css";
 import LandingPage from "./sections/LandingPage";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
+import LawSection from "./Pages/LawSection";
 
 // Example auth check (replace with your real logic)
 const isAuthenticated = () => {
@@ -18,10 +19,10 @@ function ProtectedRoute({ children }) {
   return children;
 }
 
-// Layout Wrapper to hide Navbar on login page
+// Layout Wrapper to hide Navbar on login and signup pages
 function Layout({ children }) {
   const location = useLocation();
-  const hideNavbar = location.pathname === "/login";
+  const hideNavbar = location.pathname === "/login" || location.pathname === "/signup";
 
   return (
     <div className="w-full h-full">
@@ -40,6 +41,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/law-section" element={<LawSection />} />
 
           {/* Example Protected Route */}
           <Route
