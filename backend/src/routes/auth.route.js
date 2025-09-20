@@ -4,6 +4,7 @@ const router = express.Router()
 
 router.use('/register', authController.registerContrller)
 router.use('/login', authController.loginController)
+router.use('/logout', authController.logoutController)
 
 
 export default router
