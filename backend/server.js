@@ -1,4 +1,8 @@
 import app from '../backend/src/app.js'
+import dotenv from "dotenv"
+dotenv.config()
+import connectDb from './src/config/db.js';
+connectDb()
 
 
 
