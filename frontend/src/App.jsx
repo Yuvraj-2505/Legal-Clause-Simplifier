@@ -3,6 +3,7 @@ import Navbar from "../src/Component/Navbar";
 import "./App.css";
 import LandingPage from "./sections/LandingPage";
 import Login from "./Pages/Login";
+import Signup from "./Pages/Signup";
 
 // Example auth check (replace with your real logic)
 const isAuthenticated = () => {
@@ -38,6 +39,7 @@ function App() {
           {/* Public Routes */}
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
 
           {/* Example Protected Route */}
           <Route
