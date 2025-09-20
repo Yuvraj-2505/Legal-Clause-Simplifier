@@ -2,12 +2,9 @@ import React from 'react';
 
 const Herosection = () => {
   return (
-    <div className="bg-white min-h-screen flex items-center justify-center p-4">
+    <div className=" flex items-center justify-center p-4 border mt-5">
       
-      <div className="absolute inset-0 bg-gray-50 opacity-50 z-0"></div>
-      
-      
-      <div className="relative z-10 text-center max-w-3xl mx-auto">
+      <div className=" z-10 text-center max-w-3xl mx-auto">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
           Simplify Complex <span className="text-blue-600">Legal Documents</span> with AI
         </h1>

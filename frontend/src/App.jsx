@@ -1,26 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import Navbar from './sections/Navbar'
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import Navbar from "../src/Component/Navbar";
+import "./App.css";
+import LandingPage from "./sections/LandingPage";
+import Login from "./Pages/Login";
 
-import './App.css'
-import Herosection from './sections/HeroSection'
-import Features from './sections/Features'
+// Example auth check (replace with your real logic)
+const isAuthenticated = () => {
+  return localStorage.getItem("authToken") !== null;
+};
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-   <>
-   <div className='w-full h-full'>
-   <Navbar/>
-   <Herosection/>
-   <Features/>
-   
-
-   </div>
-   </>
-  )
+// Protected Route Wrapper
+function ProtectedRoute({ children }) {
+  if (!isAuthenticated()) {
+    return <Navigate to="/login" replace />;
+  }
+  return children;
 }
 
-export default App
+// Layout Wrapper to hide Navbar on login page
+function Layout({ children }) {
+  const location = useLocation();
+  const hideNavbar = location.pathname === "/login";
+
+  return (
+    <div className="w-full h-full">
+      {!hideNavbar && <Navbar />}
+      {children}
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Layout>
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<Login />} />
+
+          {/* Example Protected Route */}
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <h1 className="p-8 text-xl">Welcome to Dashboard</h1>
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </Layout>
+    </Router>
+  );
+}
+
+export default App;

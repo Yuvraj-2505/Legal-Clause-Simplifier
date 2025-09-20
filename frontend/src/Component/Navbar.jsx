@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react'; // Assuming you have lucide-react for icons
+import { Menu, X } from 'lucide-react'; 
+import { Link ,Navigate} from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,16 +20,18 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
-          <a href="#" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
-          <a href="#" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">About Us</a>
-          <a href="#" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">Law Section</a>
+            <Link to="/" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</Link>
+            <Link to="/about" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">About Us</Link>
+            <Link to="/law-section" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">Law Section</Link>
         </div>
 
         {/* Login Button - Desktop */}
         <div className="hidden md:block">
-          <button className="px-6 py-1 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors">
-            Login
-          </button>
+          <Link to="/login">
+            <button className="px-6 py-1 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors">
+              Login
+            </button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -43,12 +46,14 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-200">
           <div className="flex flex-col space-y-2 px-4 py-4">
-            <a href="#" className="block text-gray-600 hover:text-blue-600 font-medium transition-colors py-2">Home</a>
-            <a href="#" className="block text-gray-600 hover:text-blue-600 font-medium transition-colors py-2">About Us</a>
-            <a href="#" className="block text-gray-600 hover:text-blue-600 font-medium transition-colors py-2">Law Section</a>
-            <button className="w-full mt-2 px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors">
-              Login
-            </button>
+            <Link to="/" className="block text-gray-600 hover:text-blue-600 font-medium transition-colors py-2">Home</Link>
+            <Link to="/about" className="block text-gray-600 hover:text-blue-600 font-medium transition-colors py-2">About Us</Link>
+            <Link to="/law-section" className="block text-gray-600 hover:text-blue-600 font-medium transition-colors py-2">Law Section</Link>
+            <Link to="/login">
+              <button className="w-full mt-2 px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors">
+                Login
+              </button>
+            </Link>
           </div>
         </div>
       )}
