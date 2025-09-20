@@ -1,9 +1,10 @@
 import express from 'express'
-import documentController from "../controllers/document.controller"
+import documentController from "../controllers/document.controller.js"
+import upload from '../middleware/upload.middleware.js'
 
 const router = express.Router()
 
-router.use('/upload', documentController.processDocument)
+router.post("/upload", upload.single("document"), documentController);
 
 
 export default router
