@@ -4,6 +4,7 @@ import "./App.css";
 import LandingPage from "./sections/LandingPage";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
+import LawSection from "./Pages/LawSection";
 
 // Example auth check (replace with your real logic)
 const isAuthenticated = () => {
@@ -18,32 +19,14 @@ function ProtectedRoute({ children }) {
   return children;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 // Layout Wrapper to hide Navbar on login and signup pages
 function Layout({ children }) {
   const location = useLocation();
   const hideNavbar = location.pathname === "/login" || location.pathname === "/signup";
-=======
-// Layout Wrapper to conditionally show/hide Navbar
-function Layout({ children }) {
-  const location = useLocation();
-  
-  // List of routes where navbar should be hidden
-  const hideNavbarRoutes = ["/login", "/signup"];
-  
-  const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
->>>>>>> f5da7c48df729c920bd2a59275b0f6f55517a349
-=======
-// Layout Wrapper to hide Navbar on login page
-function Layout({ children }) {
-  const location = useLocation();
-  const hideNavbar = location.pathname === "/login";
->>>>>>> parent of 732611b (fixxing home page and added legal page and fix login/sign)
 
   return (
     <div className="w-full h-full">
-      {!shouldHideNavbar && <Navbar />}
+      {!hideNavbar && <Navbar />}
       {children}
     </div>
   );
@@ -58,6 +41,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/law-section" element={<LawSection />} />
 
           {/* Example Protected Route */}
           <Route

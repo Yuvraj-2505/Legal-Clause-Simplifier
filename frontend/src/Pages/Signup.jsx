@@ -1,12 +1,73 @@
-import React from 'react'
+import React from 'react';
 
-function Signup() {
+const SignupPage = () => {
   return (
-    <div>
-        This is signup page
-      
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="px-8 py-6 mt-4 text-left bg-white shadow-lg rounded-lg max-w-sm w-full">
+        <h3 className="text-2xl font-bold text-center">Create your account</h3>
+        <form action="">
+          <div className="mt-4">
+            <div className="flex gap-4">
+              <div className="w-1/2">
+                <label className="block" htmlFor="firstName">First Name</label>
+                <input
+                  type="text"
+                  placeholder="First Name"
+                  className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  id="firstName"
+                />
+              </div>
+              <div className="w-1/2">
+                <label className="block" htmlFor="lastName">Last Name</label>
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  id="lastName"
+                />
+              </div>
+            </div>
+            <div className="mt-4">
+              <label className="block" htmlFor="email">Email</label>
+              <input
+                type="email"
+                placeholder="Email"
+                className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                id="email"
+              />
+            </div>
+            <div className="mt-4">
+              <label className="block" htmlFor="password">Password</label>
+              <input
+                type="password"
+                placeholder="Password"
+                className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                id="password"
+              />
+            </div>
+            <div className="mt-4">
+              <label className="block" htmlFor="confirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                id="confirmPassword"
+              />
+            </div>
+            <div className="flex items-baseline justify-between">
+              <button
+                type="submit"
+                className="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900 transition-colors"
+              >
+                Sign Up
+              </button>
+              <a href="#" className="text-sm text-blue-600 hover:underline mt-4">Already have an account?</a>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Signup
+export default SignupPage;

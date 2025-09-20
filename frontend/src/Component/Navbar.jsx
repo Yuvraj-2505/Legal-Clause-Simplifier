@@ -6,8 +6,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-sm w-full rounded-2xl ">
-      <div className="container w-full px-2 py-2 flex  justify-between ">
+    <nav className="bg-white shadow-sm w-full rounded-2xl">
+      <div className="container w-full px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">
           {/* Replace with your actual logo component or image */}
