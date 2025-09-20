@@ -1,7 +1,10 @@
 import app from '../backend/src/app.js'
 import dotenv from "dotenv"
-dotenv.config()
 import connectDb from './src/config/db.js';
+dotenv.config()
+const PORT = process.env.PORT || 3000
+
+
 connectDb()
 
 
@@ -14,7 +17,7 @@ connectDb()
 
 
 
-app.listen(3000, () => {
-  console.log("server start on port num 3000");
+app.listen(PORT, () => {
+  console.log(`server is running on port ${PORT}`);
 
 })
