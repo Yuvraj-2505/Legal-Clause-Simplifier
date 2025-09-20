@@ -1,15 +1,9 @@
 import express from 'express'
 
-const app = express
+const app = express()
 
+app.get('/', (req, res) => {
+  res.send('Hello Legal Clause Simplifier!')
+})
 
-
-
-
-
-
-
-
-
-
-express default app
+export default app
